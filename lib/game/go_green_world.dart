@@ -6,9 +6,13 @@ import 'package:game/game/go_green_game.dart';
 import '../player.dart';
 
 class GoGreenWorld extends World with HasGameRef<GoGreenGame> {
+  late final Player player;
+
   @override
   FutureOr<void> onLoad() {
     super.onLoad();
-    add(Player());
+
+    player = Player();
+    add(player);
   }
 }
