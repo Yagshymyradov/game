@@ -6,15 +6,22 @@ import 'package:flutter/services.dart';
 import 'package:game/constants.dart';
 import 'package:game/game/go_green_world.dart';
 
-class GoGreenGame extends FlameGame<GoGreenWorld> with HorizontalDragDetector, KeyboardEvents{
+class GoGreenGame extends FlameGame<GoGreenWorld>
+    with HorizontalDragDetector, KeyboardEvents, HasCollisionDetection {
   GoGreenGame({super.children})
       : super(
-    world: GoGreenWorld(),
+          world: GoGreenWorld(),
           camera: CameraComponent.withFixedResolution(
             width: gameWidth,
             height: gameHeight,
           ),
         );
+
+  @override
+  void onLoad() {
+    super.onLoad();
+    debugMode = true;
+  }
 
   @override
   Color backgroundColor() {
@@ -30,11 +37,11 @@ class GoGreenGame extends FlameGame<GoGreenWorld> with HorizontalDragDetector, K
   @override
   KeyEventResult onKeyEvent(KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
     const double moveSpeed = 55;
-    if(event is KeyDownEvent){
-      if(keysPressed.contains(LogicalKeyboardKey.arrowRight)){
+    if (event is KeyDownEvent) {
+      if (keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
         world.player.move(moveSpeed);
         return KeyEventResult.handled;
-      }else if(keysPressed.contains(LogicalKeyboardKey.arrowLeft)){
+      } else if (keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
         world.player.move(-moveSpeed);
         return KeyEventResult.handled;
       }

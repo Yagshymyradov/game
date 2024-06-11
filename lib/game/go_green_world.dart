@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:game/game/go_green_game.dart';
+import 'package:game/sprites/bin.dart';
 
-import '../player.dart';
+import '../sprites/player.dart';
 
 class GoGreenWorld extends World with HasGameRef<GoGreenGame> {
   late final Player player;
@@ -14,5 +15,6 @@ class GoGreenWorld extends World with HasGameRef<GoGreenGame> {
 
     player = Player();
     add(player);
+    add(Bin());
   }
 }
