@@ -2,7 +2,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:game/constants.dart';
 
-import 'go_green.dart';
+import 'game/go_green_game.dart';
 
 class GameApp extends StatefulWidget {
   const GameApp({super.key});
@@ -28,7 +28,7 @@ class _GameAppState extends State<GameApp> {
                 width: gameWidth,
                 height: gameHeight,
                 child: GameWidget(
-                  game: GoGreen(),
+                  game: GoGreenGame(),
                 ),
               ),
             ),

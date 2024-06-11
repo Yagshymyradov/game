@@ -8,14 +8,13 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:game/go_green.dart';
+import 'package:game/game/go_green_game.dart';
 
-import 'package:game/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(GameWidget(game: GoGreen()));
+    await tester.pumpWidget(GameWidget(game: GoGreenGame()));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
